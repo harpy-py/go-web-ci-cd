@@ -1,0 +1,31 @@
+version: "3.9"
+services:
+  web:
+    build: ./app
+    ports:
+      - "5000:5000"
+
+  jenkins:
+    image: jenkins/jenkins:lts
+    ports:
+      - "8088:8080"
+    volumes:
+      - jenkins_home:/var/jenkins_home
+
+  prometheus:
+    image: prom/prometheus
+    volumes:
+      - ./prometheus/prometheus.yml:/etc/prometheus/prometheus.yml
+    ports:
+      - "9090:9090"
+
+  grafana:
+    image: grafana/grafana
+    ports:
+      - "10000:3000"
+    volumes:
+      - grafana_data:/var/lib/grafana
+
+volumes:
+  jenkins_home:
+  grafana_data:
