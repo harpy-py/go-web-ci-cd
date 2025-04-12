@@ -2,6 +2,7 @@ version: "3.9"
 services:
   web:
     build: ./app
+    container_name: go_app
     ports:
       - "5000:5000"
 
