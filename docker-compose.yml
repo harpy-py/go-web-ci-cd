@@ -5,6 +5,7 @@ services:
     container_name: go_app
     ports:
       - "5000:5000"
+    image: pazienza/go-web-app-web:${IMAGE_TAG}
 
   jenkins:
     image: jenkins/jenkins:lts
