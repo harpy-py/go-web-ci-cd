@@ -10,13 +10,13 @@ images:
 configMapGenerator:
   - name: grafana-datasource
     files:
-      - ../grafana/datasource.yml
-      - ../grafana/dashboard.yml
+      - grafana/datasource.yml
+      - grafana/dashboard.yml
 
   - name: grafana-dashboards
     files:
-      - ../grafana/dashboards/go-get-total.json
+      - grafana/dashboards/go-get-total.json
 
   - name: prometheus-config
     files:
-      - ../prometheus/prometheus.yml
+      - prometheus/prometheus.yml
