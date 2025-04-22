@@ -1,0 +1,22 @@
+resources:
+  - go-web-app.yml
+  - grafana.yml
+  - prometheus.yml
+
+images:
+  - name: pazienza/go-web-app-web
+    newTag: build-3  # <- Jenkins will update this tag dynamically
+
+configMapGenerator:
+  - name: grafana-datasource
+    files:
+      - ../grafana/datasource.yml
+      - ../grafana/dashboard.yml
+
+  - name: grafana-dashboards
+    files:
+      - ../grafana/dashboards/go-get-total.json
+
+  - name: prometheus-config
+    files:
+      - ../prometheus/prometheus.yml
